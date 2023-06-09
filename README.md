@@ -1,24 +1,47 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Hexlet tests and linter status
 
-Things you may want to cover:
+[![Main CI](https://github.com/amshkv/rails-project-65/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/amshkv/rails-project-65/actions/workflows/main.yml)
+[![Actions Status](https://github.com/amshkv/rails-project-65/workflows/hexlet-check/badge.svg)](https://github.com/amshkv/rails-project-65/actions)
 
-* Ruby version
+[Bulletin board](https://bulletin-board.mshkv.ru/) is a simple bulletin board application
 
-* System dependencies
+## Requirements
 
-* Configuration
+- Ruby 3.2.2
+- NodeJS 16 and later
+- Yarn
+- Gitmoji CLI
 
-* Database creation
+## Setup
 
-* Database initialization
+```sh
+make setup
+```
 
-* How to run the test suite
+## Run
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+make start
+```
 
-* Deployment instructions
+## Development
 
-* ...
+### Install hooks
+
+```sh
+make install-hooks
+```
+
+### Tests
+
+```sh
+make test
+```
+
+### Linter
+
+```sh
+make lint
+```
