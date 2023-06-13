@@ -77,6 +77,8 @@ group :development do
 
   gem 'annotate'
 
+  gem 'i18n-debug'
+
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
