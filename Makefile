@@ -1,3 +1,5 @@
+project-setup: copy_env setup
+
 install:
 	bundle install
 
@@ -46,5 +48,8 @@ fixture-load:
 
 fix-counters:
 	bundle exec rake app:fix-counters
+
+copy_env:
+	cp -n .env.example .env || exit 0
 
 .PHONY: test

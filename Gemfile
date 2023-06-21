@@ -8,6 +8,9 @@ ruby '3.2.2'
 gem 'sentry-rails'
 gem 'sentry-ruby'
 
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.5'
 
@@ -65,6 +68,8 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   gem 'faker'
+
+  gem 'dotenv-rails'
 end
 
 group :development do
