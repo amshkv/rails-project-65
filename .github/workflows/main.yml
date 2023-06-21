@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Copy Env File
+      run: make copy-env
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:

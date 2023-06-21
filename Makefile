@@ -1,4 +1,4 @@
-project-setup: copy_env setup
+project-setup: copy-env setup
 
 install:
 	bundle install
@@ -49,7 +49,7 @@ fixture-load:
 fix-counters:
 	bundle exec rake app:fix-counters
 
-copy_env:
+copy-env:
 	cp -n .env.example .env || exit 0
 
 .PHONY: test
