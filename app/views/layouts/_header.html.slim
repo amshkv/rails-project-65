@@ -12,22 +12,12 @@ header.flex-shrink-0
         ul.navbar-nav.me-auto.mb-2.mb-md-0
           li.nav-item
             = link_to t('.all_posts'), root_path, class: class_names('nav-link', active: current_page?(root_path))
-          - if user_signed_in?
-            li.nav-item
-              = link_to t('.new_post'), new_post_path,
-                class: class_names('nav-link', active: current_page?(new_post_path))
 
         .text-md-end
-          - if user_signed_in?
-            ul.navbar-nav.mb-2.mb-md-0
-              li.nav-item
-               = link_to t('.edit_profile'), edit_user_registration_path,
-                class: class_names('nav-link', active: current_page?(edit_user_registration_path))
-              li.nav-item
-                = link_to t('.sign_out'), destroy_user_session_path,
-                  data: { turbo_method: :delete }, class: 'nav-link'
+          - if current_user
+            = button_to t('sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'btn btn-link text-white p-0'
+
           - else
-            = link_to t('.sign_in'), new_user_session_path,
-              class: class_names('btn btn-outline-light me-2', active: current_page?(new_user_session_path))
-            = link_to t('.sign_up'), new_user_registration_path,
-              class: class_names('btn btn-primary', actvie: current_page?(new_user_registration_path))
+            = button_to auth_request_path(:github), method: :post, data: { turbo: false }, class: 'btn btn-link text-white p-0' do
+              span.bi.bi-github.me-2
+              = t('sign_in')
