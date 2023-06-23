@@ -1,0 +1,1 @@
+attachment_blob: <%= ActiveStorage::FixtureSet.blob filename: "deathly_hallows.png" %>

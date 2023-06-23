@@ -15,3 +15,6 @@ DEFAULTS: &DEFAULTS
 
 full:
   <<: *DEFAULTS
+
+with_bulletin:
+  <<: *DEFAULTS

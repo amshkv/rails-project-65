@@ -9,7 +9,7 @@ class Web::AuthController < Web::ApplicationController
     user = User.find_or_create_by(email:)
 
     if user.save!
-      session[:user_id] = user.id
+      sign_in(user)
       redirect_to root_path, notice: I18n.t('login.success')
     else
       redirect_to root_path, alert: I18n.t('login.failure')
@@ -17,7 +17,7 @@ class Web::AuthController < Web::ApplicationController
   end
 
   def logout
-    reset_session
+    sign_out
     redirect_to root_path, notice: I18n.t('logout.success')
   end
 end

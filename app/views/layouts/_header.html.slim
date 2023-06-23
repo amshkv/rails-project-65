@@ -14,7 +14,7 @@ header.flex-shrink-0
             = link_to t('.all_posts'), root_path, class: class_names('nav-link', active: current_page?(root_path))
 
         .text-md-end
-          - if current_user
+          - if signed_in?
             = button_to t('sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'btn btn-link text-white p-0'
 
           - else

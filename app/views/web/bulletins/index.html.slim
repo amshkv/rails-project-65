@@ -1,0 +1,15 @@
+.container.my-5
+  .row.row-cols-lg-4.gy-4
+    - @bulletins.each do |bulletin|
+      .col
+        .card
+          - if bulletin.image.attached?
+            = image_tag bulletin.image, class: 'card-img-top'
+          .card-body
+            .card-title = bulletin.title
+            .card-text.d-flex.flex-wrap.justify-content-between
+              .me-3 = time_ago_in_words bulletin.created_at
+
+              = link_to '#', class: 'stretched-link icon-link icon-link-hover' do
+                = t('.read_more')
+                span.bi.bi-arrow-right

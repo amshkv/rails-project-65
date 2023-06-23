@@ -5,12 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'sentry-rails'
-gem 'sentry-ruby'
-
-gem 'omniauth-github'
-gem 'omniauth-rails_csrf_protection'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.5'
 
@@ -56,7 +50,17 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'active_storage_validations'
+
 gem 'flash_rails_messages'
+
+gem 'slim-rails'
+
+gem 'sentry-rails'
+gem 'sentry-ruby'
+
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 
 group :production do
   gem 'pg'

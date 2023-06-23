@@ -17,6 +17,8 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
+  include AuthConcern
+
   def sign_in(user)
     auth_hash = {
       provider: 'github',
@@ -30,13 +32,5 @@ class ActionDispatch::IntegrationTest
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash::InfoHash.new(auth_hash)
 
     get callback_auth_url('github')
-  end
-
-  def signed_in?
-    session[:user_id].present? && current_user.present?
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
   end
 end
