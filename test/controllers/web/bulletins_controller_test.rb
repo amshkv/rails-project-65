@@ -7,4 +7,11 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     get root_url
     assert_response :success
   end
+
+  test 'should get show' do
+    bulletin = bulletins(:one)
+
+    get bulletin_url(bulletin)
+    assert_response :success
+  end
 end

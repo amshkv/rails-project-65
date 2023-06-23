@@ -1,1 +1,9 @@
-lalala
+.container.my-5
+  h1.mb-4 = @bulletin.title
+  - if @bulletin.image.attached?
+    = image_tag @bulletin.image, class: 'img-fluid mb-3'
+  p = @bulletin.description
+  p
+    = l(@bulletin.created_at, format: :long)
+    span.mx-2 |
+    = @bulletin.user.name
