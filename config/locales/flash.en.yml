@@ -1,0 +1,7 @@
+---
+en:
+  login:
+    failure: Oops! There's been some kind of error
+    success: You have successfully logged in
+  logout:
+    success: You have successfully logged out
