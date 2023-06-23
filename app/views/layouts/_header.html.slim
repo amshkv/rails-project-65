@@ -5,19 +5,19 @@ header.flex-shrink-0
         = t('application_name')
 
       button.navbar-toggler[type='button' data-bs-toggle='collapse' data-bs-target='#navbarScroll'
-        aria-controls='navbarScroll' aria-expanded='false' aria-label='Toggle navigation']
+        aria-controls='navbarScroll' aria-expanded='false' aria-label=t('.toggle_navigation')]
         span.navbar-toggler-icon
 
       .collapse.navbar-collapse#navbarScroll
         ul.navbar-nav.me-auto.mb-2.mb-md-0
           li.nav-item
-            = link_to t('.all_posts'), root_path, class: class_names('nav-link', active: current_page?(root_path))
+            = link_to t('.main'), root_path, class: class_names('nav-link', active: current_page?(root_path))
 
         .text-md-end
           - if signed_in?
-            = button_to t('sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'btn btn-link text-white p-0'
+            = button_to t('.sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'btn btn-link text-white p-0'
 
           - else
             = button_to auth_request_path(:github), method: :post, data: { turbo: false }, class: 'btn btn-link text-white p-0' do
               span.bi.bi-github.me-2
-              = t('sign_in')
+              = t('.sign_in')
