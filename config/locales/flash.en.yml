@@ -1,5 +1,9 @@
 ---
 en:
+  bulletin:
+    create:
+      failure: Bulletin was not created
+      success: Bulletin was successfully created
   login:
     failure: Oops! There's been some kind of error
     success: You have successfully logged in

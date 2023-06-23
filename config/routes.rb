@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
     root 'bulletins#index'
 
-    resources :bulletins, only: %i[show]
+    resources :bulletins, only: %i[show new create]
   end
 end

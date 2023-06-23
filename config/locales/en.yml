@@ -7,6 +7,7 @@ en:
       copyright: "%{year} Bulletin board"
     header:
       main: Main
+      new: New bulletin
       sign_in: Sign in
       sign_out: Sign out
       toggle_navigation: Toggle navigation
@@ -15,3 +16,5 @@ en:
       index:
         bulletins: Bulletins
         read_more: Read more
+      new:
+        new: New bulletin
