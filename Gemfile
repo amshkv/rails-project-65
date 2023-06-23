@@ -62,6 +62,8 @@ gem 'sentry-ruby'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
+gem 'simple_form'
+
 group :production do
   gem 'pg'
 end
