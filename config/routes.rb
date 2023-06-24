@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     resources :bulletins, only: %i[show new create]
+
+    namespace :admin do
+      root 'welcome#index'
+    end
   end
 end
