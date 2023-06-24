@@ -6,7 +6,7 @@
         .col
           .card
             - if bulletin.image.attached?
-              = image_tag bulletin.image, class: 'card-img-top'
+              = image_tag bulletin.image.variant(resize_to_fill: [400, 300]), class: 'card-img-top'
             .card-body
               .card-title = bulletin.title
               .card-text.d-flex.flex-wrap.justify-content-between
