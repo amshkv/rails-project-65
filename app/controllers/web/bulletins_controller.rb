@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
+  after_action :verify_authorized, only: %i[new create]
   def index
     @bulletins = Bulletin.all.includes(image_attachment: :blob).order(created_at: :desc)
   end
@@ -11,9 +12,11 @@ class Web::BulletinsController < Web::ApplicationController
 
   def new
     @bulletin = Bulletin.new
+    authorize @bulletin
   end
 
   def create
+    authorize Bulletin
     @bulletin = current_user.bulletins.build(permitted_params)
 
     if @bulletin.save
