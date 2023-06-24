@@ -14,9 +14,10 @@ en:
   not_authorized: You are not authorized to perform this action
   web:
     bulletins:
+      new:
+        new: New bulletin
+    welcome:
       index:
         bulletins: Bulletins
         no_bulletins: No bulletins
         read_more: Read more
-      new:
-        new: New bulletin
