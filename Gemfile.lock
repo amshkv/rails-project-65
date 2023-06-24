@@ -119,6 +119,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.15.5)
     flash_rails_messages (2.3.0)
       rails (>= 5.2)
     globalid (1.1.0)
@@ -140,6 +141,9 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
@@ -161,6 +165,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
     minitest-power_assert (0.3.1)
@@ -275,6 +280,8 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.13.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
@@ -363,6 +370,7 @@ DEPENDENCIES
   flash_rails_messages
   i18n-debug
   i18n-tasks
+  image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
   minitest-power_assert
