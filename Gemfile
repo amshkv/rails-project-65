@@ -64,6 +64,8 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'simple_form'
 
+gem 'pundit'
+
 group :production do
   gem 'pg'
 end
