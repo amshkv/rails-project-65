@@ -16,11 +16,16 @@ header.flex-shrink-0
             li.nav-item
               = link_to t('.new'), new_bulletin_path, class: class_names('nav-link', active: current_page?(new_bulletin_path))
 
-        .text-md-end
+        ul.navbar-nav.text-md-end
           - if signed_in?
-            = button_to t('.sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'btn btn-link text-white p-0'
+            - if current_user.admin?
+              li.nav-item
+                = link_to t('.admins'), admin_root_path, class: class_names('nav-link', active: current_page?(admin_root_path))
+            li.nav-item
+              = button_to t('.sign_out'), auth_logout_path, method: :delete, data: { turbo: false }, class: 'nav-link'
 
           - else
-            = button_to auth_request_path(:github), method: :post, data: { turbo: false }, class: 'btn btn-link text-white p-0' do
-              span.bi.bi-github.me-2
-              = t('.sign_in')
+            li.nav-item
+              = button_to auth_request_path(:github), method: :post, data: { turbo: false }, class: 'nav-link' do
+                span.bi.bi-github.me-2
+                = t('.sign_in')

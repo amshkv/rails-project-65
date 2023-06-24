@@ -9,3 +9,5 @@ en:
     success: You have successfully logged in
   logout:
     success: You have successfully logged out
+  not_admin: You are not authorized on admin privileges to perform this action
+  not_authorized: You are not authorized to perform this action

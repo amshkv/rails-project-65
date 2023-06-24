@@ -18,4 +18,8 @@ module AuthConcern
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
+
+  def authenticate_admin!
+    return redirect_to root_path, alert: I18n.t('not_admin') unless current_user&.admin?
+  end
 end

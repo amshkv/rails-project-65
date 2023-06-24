@@ -6,12 +6,12 @@ en:
     application:
       copyright: "%{year} Bulletin board"
     header:
+      admins: Admin
       main: Main
       new: New bulletin
       sign_in: Sign in
       sign_out: Sign out
       toggle_navigation: Toggle navigation
-  not_authorized: You are not authorized to perform this action
   web:
     bulletins:
       new:
