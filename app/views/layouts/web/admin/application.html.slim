@@ -1,0 +1,20 @@
+doctype html
+html
+  = render 'layouts/shared/head'
+  body.min-vh-100.d-flex.flex-column
+    = render 'layouts/shared/header'
+
+    .container-fluid
+      = render_flash_messages dismissible: true
+
+    main.flex-grow-1.flex-shrink-0
+      .container-fluid
+        .row
+          .col-lg-2.pt-3
+            ul.nav.nav-pills.flex-column
+              li.nav-item
+                = link_to t('.root'), admin_root_path, class: class_names('nav-link', active: current_page?(admin_root_path))
+          .col-lg
+            = yield
+
+    = render 'layouts/shared/footer'

@@ -13,6 +13,10 @@ en:
         sign_in: Sign in
         sign_out: Sign out
         toggle_navigation: Toggle navigation
+    web:
+      admin:
+        application:
+          root: Bulletins
   web:
     admin:
       welcome:
