@@ -22,6 +22,7 @@ en:
       welcome:
         index:
           actions: Actions
+          bulletins: Bulletins
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
