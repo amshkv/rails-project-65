@@ -3,15 +3,16 @@ en:
   application_name: Bulletin board
   close: Close
   layouts:
-    application:
-      copyright: "%{year} Bulletin board"
-    header:
-      admins: Admin
-      main: Main
-      new: New bulletin
-      sign_in: Sign in
-      sign_out: Sign out
-      toggle_navigation: Toggle navigation
+    shared:
+      footer:
+        copyright: "%{year} Bulletin board"
+      header:
+        admins: Admin
+        main: Main
+        new: New bulletin
+        sign_in: Sign in
+        sign_out: Sign out
+        toggle_navigation: Toggle navigation
   web:
     admin:
       welcome:

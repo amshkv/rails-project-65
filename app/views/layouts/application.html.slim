@@ -1,15 +1,8 @@
 doctype html
 html
-  head
-    title = t('application_name')
-    meta[name='viewport' content='width=device-width,initial-scale=1']
-    = csrf_meta_tags
-    = csp_meta_tag
-    = favicon_link_tag 'daily_prophet_logo.png'
-    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+  = render 'layouts/shared/head'
   body.min-vh-100.d-flex.flex-column
-    = render 'layouts/header'
+    = render 'layouts/shared/header'
 
     .container-fluid
       = render_flash_messages dismissible: true
@@ -17,6 +10,4 @@ html
     main.flex-grow-1.flex-shrink-0
       = yield
 
-    footer.footer.py-3.flex-shrink-0.bg-dark.bg-opacity-75.text-white
-      .container-fluid
-        = t('.copyright', year: Time.current.year)
+    = render 'layouts/shared/footer'
