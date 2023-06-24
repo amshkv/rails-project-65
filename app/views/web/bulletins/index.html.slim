@@ -12,7 +12,7 @@
               .card-text.d-flex.flex-wrap.justify-content-between
                 .me-3 = time_ago_in_words bulletin.created_at
 
-                = link_to bulletin_path(bulletin), class: 'stretched-link icon-link icon-link-hover' do
+                = link_to bulletin_path(bulletin), class: 'stretched-link icon-link icon-link-hover lh-sm' do
                   = t('.read_more')
                   span.bi.bi-arrow-right
   - else
