@@ -25,9 +25,8 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest should raise error from new' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      get new_bulletin_url
-    end
+    get new_bulletin_url
+    assert_response :redirect
   end
 
   test 'signed user should get new' do
@@ -39,9 +38,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'guest cant create post' do
-    assert_raises(Pundit::NotAuthorizedError) do
-      post bulletins_url, params: { bulletin: @attrs }
-    end
+    post bulletins_url, params: { bulletin: @attrs }
+
+    assert_response :redirect
 
     bulletin = Bulletin.find_by(@attrs.except(:image))
     assert_not bulletin

@@ -11,10 +11,12 @@ en:
       sign_in: Sign in
       sign_out: Sign out
       toggle_navigation: Toggle navigation
+  not_authorized: You are not authorized to perform this action
   web:
     bulletins:
       index:
         bulletins: Bulletins
+        no_bulletins: No bulletins
         read_more: Read more
       new:
         new: New bulletin
