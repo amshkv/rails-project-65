@@ -16,9 +16,17 @@ en:
     web:
       admin:
         application:
+          bulletins: Bulletins
           root: Bulletins
   web:
     admin:
+      bulletins:
+        index:
+          actions: Actions
+          bulletins: Bulletins
+          created_at: Created_at
+          name: Name
+          no_bulletins: No bulletins
       welcome:
         index:
           actions: Actions
