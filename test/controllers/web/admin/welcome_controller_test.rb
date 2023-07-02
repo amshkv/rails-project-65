@@ -3,6 +3,7 @@
 require 'test_helper'
 
 class Web::Admin::WelcomeControllerTest < ActionDispatch::IntegrationTest
+  # TODO: проверяем на админство один раз или несколько?
   test 'guest should raise error from admin' do
     get admin_root_url
     assert_response :redirect

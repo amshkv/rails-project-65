@@ -2,6 +2,9 @@
 en:
   application_name: Bulletin board
   close: Close
+  confirm: Are you sure?
+  delete: Delete
+  edit: Edit
   layouts:
     shared:
       footer:
@@ -17,6 +20,7 @@ en:
       admin:
         application:
           bulletins: Bulletins
+          categories: Categories
           root: Bulletins
   web:
     admin:
@@ -27,6 +31,18 @@ en:
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
+      categories:
+        edit:
+          edit_category: Edit "%{category}"
+        index:
+          actions: Actions
+          categories: Categories
+          id: Id
+          name: Name
+          new_category: New category
+          no_categories: No categories
+        new:
+          new_category: New category
       welcome:
         index:
           actions: Actions

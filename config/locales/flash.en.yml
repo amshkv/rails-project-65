@@ -4,6 +4,15 @@ en:
     create:
       failure: Bulletin was not created
       success: Bulletin was successfully created
+  category:
+    create:
+      failure: Category was not created
+      success: Category was successfully created
+    destroy:
+      success: Category was successfully destroyed
+    update:
+      failure: Category was not updated
+      success: Category was successfully updated
   login:
     failure: Oops! There's been some kind of error
     success: You have successfully logged in

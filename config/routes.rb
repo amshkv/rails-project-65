@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root 'welcome#index'
       resources :bulletins, only: %i[index]
+      resources :categories, only: %i[index new create edit update destroy]
     end
   end
 end
