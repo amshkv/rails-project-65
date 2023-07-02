@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       root 'welcome#index'
       resources :bulletins, only: %i[index]
       resources :categories, only: %i[index new create edit update destroy]
+      resources :users, only: %i[index edit update]
     end
   end
 end

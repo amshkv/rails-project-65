@@ -11,13 +11,18 @@
 #
 
 DEFAULTS: &DEFAULTS
-  name: <%= Faker::Name.name %>
   email: $LABEL@test.io
   admin: false
 
 full:
   <<: *DEFAULTS
+  name: <%= Faker::Name.name %>
   admin: true
+
+not_admin:
+  <<: *DEFAULTS
+  name: <%= Faker::Name.name %>
 
 with_bulletin:
   <<: *DEFAULTS
+  name: <%= Faker::Name.name %>

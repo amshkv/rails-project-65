@@ -1,0 +1,6 @@
+.container.my-5
+  h1 = t('.edit_user', user: @user.email)
+
+  = simple_form_for @user, url: admin_user_path(@user) do |f|
+    = f.input :admin, as: :boolean
+    = f.button :submit, class: 'btn-primary'

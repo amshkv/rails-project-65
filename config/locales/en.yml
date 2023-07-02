@@ -22,6 +22,7 @@ en:
           bulletins: Bulletins
           categories: Categories
           root: Bulletins
+          users: Users
   web:
     admin:
       bulletins:
@@ -43,6 +44,17 @@ en:
           no_categories: No categories
         new:
           new_category: New category
+      users:
+        edit:
+          edit_user: Edit "%{user}"
+        index:
+          actions: Actions
+          admin: Admin?
+          created_at: Created_at
+          email: Email
+          name: Name
+          no_users: No users
+          users: Users
       welcome:
         index:
           actions: Actions
