@@ -1,9 +1,8 @@
-one_images:
+<% for bulletin in %i(published rejected archived draft under_moderation) %>
+
+<%= bulletin %>_images:
   name: image
-  record: one (Bulletin)
+  record: <%= bulletin %> (Bulletin)
   blob: attachment_blob
 
-two_images:
-  name: image
-  record: two (Bulletin)
-  blob: attachment_blob
+<% end %>

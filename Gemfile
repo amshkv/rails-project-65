@@ -66,6 +66,8 @@ gem 'simple_form'
 
 gem 'pundit'
 
+gem 'aasm'
+
 group :production do
   gem 'pg'
 end

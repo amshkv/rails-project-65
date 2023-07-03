@@ -6,14 +6,24 @@
         thead
           tr
             th = t('.name')
+            th = t('.state')
             th = t('.created_at')
             th = t('.actions')
         - @bulletins.each do |bulletin|
           tr
             td
               = link_to bulletin.title, bulletin
+            td = bulletin.aasm.human_state
             td = time_ago_in_words(bulletin.created_at)
             td
+              .btn-group
+                = link_to bulletin_path(bulletin), class: 'btn btn-primary btn-sm' do
+                  span.bi.bi-eye.me-1
+                  = t('show')
+                - unless bulletin.archived?
+                  = link_to archive_admin_bulletin_path(bulletin), data: { turbo_method: :patch, turbo_confirm: t('confirm') }, class: 'btn btn-danger btn-sm' do
+                    span.bi.bi-archive.me-1
+                    = t('archive')
 
   - else
     = t('.no_bulletins')

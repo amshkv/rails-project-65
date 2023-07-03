@@ -3,6 +3,7 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
+#  aasm_state  :string
 #  description :text
 #  title       :string
 #  created_at  :datetime         not null
@@ -21,20 +22,38 @@
 #  user_id      (user_id => users.id)
 #
 
-DEFAULTS: &DEFAULTS
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-
-one:
-  # <<: *DEFAULTS
+published:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
+  aasm_state: $LABEL
 
-two:
-  # <<: *DEFAULTS
+draft:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: hobby
-  user: with_bulletin
+  category: work
+  user: full
+  aasm_state: $LABEL
+
+rejected:
+  title: <%= Faker::Company.name %>
+  description: <%= Faker::Lorem.paragraph_by_chars %>
+  category: work
+  user: full
+  aasm_state: $LABEL
+
+archived:
+  title: <%= Faker::Company.name %>
+  description: <%= Faker::Lorem.paragraph_by_chars %>
+  category: work
+  user: full
+  aasm_state: $LABEL
+
+
+under_moderation:
+  title: <%= Faker::Company.name %>
+  description: <%= Faker::Lorem.paragraph_by_chars %>
+  category: work
+  user: full
+  aasm_state: $LABEL

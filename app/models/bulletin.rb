@@ -5,6 +5,7 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
+#  aasm_state  :string
 #  description :text
 #  title       :string
 #  created_at  :datetime         not null
@@ -23,6 +24,32 @@
 #  user_id      (user_id => users.id)
 #
 class Bulletin < ApplicationRecord
+  include AASM
+
+  aasm do
+    state :draft, initial: true
+    state :under_moderation
+    state :published
+    state :rejected
+    state :archived
+
+    event :send_to_moderate do
+      transitions from: :draft, to: :under_moderation
+    end
+
+    event :publish do
+      transitions from: :under_moderation, to: :published
+    end
+
+    event :reject do
+      transitions from: :under_moderation, to: :rejected
+    end
+
+    event :archive do
+      transitions to: :archived
+    end
+  end
+
   has_one_attached :image
 
   belongs_to :category

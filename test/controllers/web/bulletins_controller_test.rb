@@ -7,13 +7,13 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @attrs = {
       title: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraph,
-      category_id: categories(:hobby).id,
+      category_id: categories(:work).id,
       image: fixture_file_upload('deathly_hallows.png', 'image/png')
     }
   end
 
   test 'should get show' do
-    bulletin = bulletins(:one)
+    bulletin = bulletins(:published)
 
     get bulletin_url(bulletin)
     assert_response :success

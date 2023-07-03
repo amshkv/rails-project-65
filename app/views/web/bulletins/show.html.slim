@@ -7,3 +7,6 @@
     = l(@bulletin.created_at, format: :long)
     span.mx-2 |
     = @bulletin.user.name
+    - if @bulletin.user == current_user
+      span.mx-2 |
+      = @bulletin.aasm.human_state

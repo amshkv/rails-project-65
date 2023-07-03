@@ -31,13 +31,13 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit category' do
-    category = categories(:hobby)
+    category = categories(:work)
     get edit_admin_category_url(category)
     assert_response :success
   end
 
   test 'should update category' do
-    category = categories(:hobby)
+    category = categories(:work)
     patch admin_category_url(category), params: { category: @attrs }
 
     updated_category = Category.find_by(@attrs)
@@ -47,7 +47,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy category' do
-    category = categories(:hobby)
+    category = categories(:work)
     delete admin_category_url(category)
 
     assert { !Category.exists?(category.id) }

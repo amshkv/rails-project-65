@@ -14,9 +14,17 @@ Rails.application.routes.draw do
 
     resources :bulletins, only: %i[show new create]
 
+    get 'profile', to: 'users#show'
+
     namespace :admin do
       root 'welcome#index'
-      resources :bulletins, only: %i[index]
+      resources :bulletins, only: %i[index] do
+        member do
+          patch :publish
+          patch :reject
+          patch :archive
+        end
+      end
       resources :categories, only: %i[index new create edit update destroy]
       resources :users, only: %i[index edit update]
     end

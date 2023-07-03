@@ -1,9 +1,18 @@
 ---
 en:
   bulletin:
+    archive:
+      failure: Bulletin was not archived
+      success: Bulletin was successfully archived
     create:
       failure: Bulletin was not created
       success: Bulletin was successfully created
+    publish:
+      failure: Bulletin was not published
+      success: Bulletin was successfully published
+    reject:
+      failure: Bulletin was not rejected
+      success: Bulletin was successfully rejected
   category:
     create:
       failure: Category was not created

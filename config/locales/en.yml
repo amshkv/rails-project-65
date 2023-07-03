@@ -1,6 +1,7 @@
 ---
 en:
   application_name: Bulletin board
+  archive: Archive
   close: Close
   confirm: Are you sure?
   delete: Delete
@@ -21,8 +22,11 @@ en:
         application:
           bulletins: Bulletins
           categories: Categories
-          root: Bulletins
+          root: Bulletins under moderation
           users: Users
+  publish: Publish
+  reject: Reject
+  show: Show
   web:
     admin:
       bulletins:
@@ -32,6 +36,7 @@ en:
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
+          state: State
       categories:
         edit:
           edit_category: Edit "%{category}"
@@ -58,7 +63,7 @@ en:
       welcome:
         index:
           actions: Actions
-          bulletins: Bulletins
+          bulletins: Bulletins under moderation
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
