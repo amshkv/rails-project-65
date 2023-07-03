@@ -2,7 +2,7 @@
 
 class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
-    @users = User.all.order(id: :desc)
+    @users = User.all.order(id: :desc).page(params[:page])
   end
 
   def edit

@@ -1,7 +1,7 @@
 .container.my-5
   h1 = t('.bulletins')
   - if @bulletins.any?
-    .table-responsive
+    .table-responsive.mb-5
       table.table.table-striped
         thead
           tr
@@ -24,6 +24,8 @@
                   = link_to archive_admin_bulletin_path(bulletin), data: { turbo_method: :patch, turbo_confirm: t('confirm') }, class: 'btn btn-danger btn-sm' do
                     span.bi.bi-archive.me-1
                     = t('archive')
+
+    = paginate @bulletins
 
   - else
     = t('.no_bulletins')

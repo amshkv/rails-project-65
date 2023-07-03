@@ -2,7 +2,7 @@
 
 class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   def index
-    @categories = Category.all.order(id: :asc)
+    @categories = Category.all.order(id: :asc).page(params[:page])
   end
 
   def new

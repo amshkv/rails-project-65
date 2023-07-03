@@ -1,7 +1,7 @@
 .container.my-5
   h1.mb-4 = t('.bulletins')
   - if @bulletins.any?
-    .row.row-cols-lg-4.gy-4
+    .row.row-cols-lg-4.gy-4.mb-5
       - @bulletins.each do |bulletin|
         .col
           .card
@@ -15,5 +15,8 @@
                 = link_to bulletin_path(bulletin), class: 'stretched-link icon-link icon-link-hover lh-sm' do
                   = t('.read_more')
                   span.bi.bi-arrow-right
+
+    = paginate @bulletins
+
   - else
     = t('.no_bulletins')
