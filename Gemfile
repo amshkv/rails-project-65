@@ -70,6 +70,8 @@ gem 'aasm'
 
 gem 'kaminari'
 
+gem 'ransack'
+
 group :production do
   gem 'pg'
 end
