@@ -14,6 +14,8 @@ header.flex-shrink-0
             = link_to t('.main'), root_path, class: class_names('nav-link', active: current_page?(root_path))
           - if signed_in?
             li.nav-item
+              = link_to t('.profile'), profile_path, class: class_names('nav-link', active: current_page?(profile_path))
+            li.nav-item
               = link_to t('.new'), new_bulletin_path, class: class_names('nav-link', active: current_page?(new_bulletin_path))
 
         ul.navbar-nav.text-md-end

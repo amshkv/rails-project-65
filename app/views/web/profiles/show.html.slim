@@ -1,0 +1,27 @@
+.container.my-5
+  h1 = t('.bulletins')
+  - if @bulletins.any?
+    .table-responsive.mb-5
+      table.table.table-striped
+        thead
+          tr
+            th = t('.name')
+            th = t('.state')
+            th = t('.created_at')
+            th = t('.actions')
+        - @bulletins.each do |bulletin|
+          tr
+            td
+              = link_to bulletin.title, bulletin
+            td = bulletin.aasm.human_state
+            td = time_ago_in_words(bulletin.created_at)
+            td
+              .btn-group
+                = link_to bulletin_path(bulletin), class: 'btn btn-primary btn-sm' do
+                  span.bi.bi-eye.me-1
+                  = t('show')
+
+    = paginate @bulletins
+
+  - else
+    = t('.no_bulletins')

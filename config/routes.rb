@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     resources :bulletins, only: %i[show new create]
 
-    get 'profile', to: 'users#show'
+    get 'profile', to: 'profiles#show'
 
     namespace :admin do
       root 'welcome#index'

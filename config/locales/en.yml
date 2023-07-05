@@ -14,6 +14,7 @@ en:
         admins: Admin
         main: Main
         new: New bulletin
+        profile: Profile
         sign_in: Sign in
         sign_out: Sign out
         toggle_navigation: Toggle navigation
@@ -70,6 +71,14 @@ en:
     bulletins:
       new:
         new: New bulletin
+    profiles:
+      show:
+        actions: Actions
+        bulletins: Bulletins
+        created_at: Created_at
+        name: Name
+        no_bulletins: No bulletins
+        state: State
     welcome:
       index:
         bulletins: Bulletins
