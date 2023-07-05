@@ -74,9 +74,10 @@ en:
     profiles:
       show:
         actions: Actions
-        bulletins: Bulletins
+        bulletins: My bulletins
         created_at: Created_at
         name: Name
+        new_bulletin: New bulletin
         no_bulletins: No bulletins
         state: State
     welcome:

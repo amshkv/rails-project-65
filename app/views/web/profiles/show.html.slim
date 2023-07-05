@@ -1,5 +1,10 @@
 .container.my-5
   h1 = t('.bulletins')
+
+  = link_to new_bulletin_path, class: 'btn btn-primary my-3' do
+    span.bi.bi-plus.me-1
+    = t('.new_bulletin')
+
   - if @bulletins.any?
     .table-responsive.mb-5
       table.table.table-striped
