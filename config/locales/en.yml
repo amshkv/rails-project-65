@@ -27,6 +27,7 @@ en:
           users: Users
   publish: Publish
   reject: Reject
+  reset: Reset
   show: Show
   to_moderate: Send to moderation
   web:

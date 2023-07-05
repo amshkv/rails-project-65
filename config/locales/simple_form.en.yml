@@ -1,10 +1,16 @@
 ---
 en:
   simple_form:
-    error_notification:
-      default_message: 'Please review the problems below:'
-    'no': 'No'
+    hints:
+      q:
+        category_id_eq: Category search
+        title_cont: Title search
+    placeholders:
+      q:
+        title_cont: Title
+    prompts:
+      q:
+        category_id_eq: Category
     required:
       html: <span title="required">*</span>
       text: required
-    'yes': 'Yes'
