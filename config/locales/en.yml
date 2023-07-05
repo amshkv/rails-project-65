@@ -28,6 +28,7 @@ en:
   publish: Publish
   reject: Reject
   show: Show
+  to_moderate: Send to moderation
   web:
     admin:
       bulletins:
