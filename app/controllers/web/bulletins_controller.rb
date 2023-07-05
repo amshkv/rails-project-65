@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
-  after_action :verify_authorized, only: %i[new create]
+  after_action :verify_authorized, only: %i[new create to_moderate archive]
 
   def show
     @bulletin = Bulletin.find(params[:id])
@@ -41,6 +41,7 @@ class Web::BulletinsController < Web::ApplicationController
 
   def to_moderate
     bulletin = Bulletin.find(params[:id])
+    authorize bulletin
 
     if bulletin.send_to_moderate!
       redirect_to profile_path, notice: I18n.t('bulletin.to_moderate.success')
@@ -51,6 +52,7 @@ class Web::BulletinsController < Web::ApplicationController
 
   def archive
     bulletin = Bulletin.find(params[:id])
+    authorize bulletin
 
     if bulletin.archive!
       redirect_to profile_path, notice: I18n.t('bulletin.archive.success')
