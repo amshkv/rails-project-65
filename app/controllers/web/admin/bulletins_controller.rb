@@ -2,7 +2,10 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.all.order(id: :desc).page(params[:page])
+    @search = Bulletin.order(id: :desc).ransack(params[:q])
+    @bulletins = @search.result.page(params[:page])
+    @categories = Category.all
+    @states = Bulletin.aasm.states.map(&:name)
   end
 
   def publish

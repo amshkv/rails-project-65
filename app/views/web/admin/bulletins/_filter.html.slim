@@ -1,0 +1,12 @@
+.px-3.pt-3.bg-light.mb-4
+  = search_form_for search, url: url_for do |f|
+    .row.g-2.row-cols-1.row-cols-md-2.row-cols-lg-3.row-cols-xl-4.align-items-start
+      .col
+        = f.input :title_cont, label: false
+      .col
+        = f.input :category_id_eq, collection: categories, label: false, prompt: :translate
+      .col
+        = f.input :aasm_state_eq, collection: states, label: false, prompt: :translate
+      .col.d-flex
+        = f.button :submit, class: 'btn-primary me-2 flex-grow-1'
+        = link_to t('reset'), url_for, class: 'btn btn-outline-primary flex-shrink-0'

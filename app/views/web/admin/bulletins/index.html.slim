@@ -1,5 +1,8 @@
 .container.my-5
   h1 = t('.bulletins')
+
+  = render 'filter', search: @search, categories: @categories, states: @states
+
   - if @bulletins.any?
     .table-responsive.mb-5
       table.table.table-striped

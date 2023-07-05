@@ -6,6 +6,8 @@
       span.bi.bi-plus.me-1
       = t('.new_bulletin')
 
+  = render 'filter', search: @search, categories: @categories, states: @states
+
   - if @bulletins.any?
     .table-responsive.mb-5
       table.table.table-striped

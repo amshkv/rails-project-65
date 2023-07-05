@@ -3,6 +3,7 @@ en:
   simple_form:
     hints:
       q:
+        aasm_state_eq: State search
         category_id_eq: Category search
         title_cont: Title search
     placeholders:
@@ -10,6 +11,7 @@ en:
         title_cont: Title
     prompts:
       q:
+        aasm_state_eq: State
         category_id_eq: Category
     required:
       html: <span title="required">*</span>

@@ -4,6 +4,9 @@ class Web::ProfilesController < Web::ApplicationController
   before_action :authenticate_user!
 
   def show
-    @bulletins = current_user.bulletins.order(id: :desc).page(params[:page])
+    @search = current_user.bulletins.order(id: :desc).ransack(params[:q])
+    @bulletins = @search.result.page(params[:page])
+    @categories = Category.all
+    @states = Bulletin.aasm.states.map(&:name)
   end
 end
