@@ -22,3 +22,7 @@ full:
 not_admin:
   <<: *DEFAULTS
   name: <%= Faker::Name.name %>
+
+without_bulletin:
+  <<: *DEFAULTS
+  name: <%= Faker::Name.name %>
