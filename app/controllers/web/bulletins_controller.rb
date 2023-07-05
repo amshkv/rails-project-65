@@ -10,11 +10,13 @@ class Web::BulletinsController < Web::ApplicationController
   def new
     @bulletin = Bulletin.new
     authorize @bulletin
+    @categories = Category.all
   end
 
   def edit
     @bulletin = Bulletin.find(params[:id])
     authorize @bulletin
+    @categories = Category.all
   end
 
   def create
