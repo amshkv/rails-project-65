@@ -1,9 +1,10 @@
 .container.my-5
   h1 = t('.bulletins')
 
-  = link_to new_bulletin_path, class: 'btn btn-primary my-3' do
-    span.bi.bi-plus.me-1
-    = t('.new_bulletin')
+  .my-3
+    = link_to new_bulletin_path, class: 'btn btn-primary' do
+      span.bi.bi-plus.me-1
+      = t('.new_bulletin')
 
   - if @bulletins.any?
     .table-responsive.mb-5
@@ -25,6 +26,9 @@
                 = link_to bulletin_path(bulletin), class: 'btn btn-primary btn-sm' do
                   span.bi.bi-eye.me-1
                   = t('show')
+                = link_to edit_bulletin_path(bulletin), class: 'btn btn-info btn-sm' do
+                  span.bi.bi-pencil.me-1
+                  = t('edit')
 
     = paginate @bulletins
 
