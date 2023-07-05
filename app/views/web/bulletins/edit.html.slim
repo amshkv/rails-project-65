@@ -1,3 +1,3 @@
 .container.my-5
-  h1.mb-4 = t('.new')
+  h1.mb-4 = t('.edit', bulletin: @bulletin.title)
   = render 'form', bulletin: @bulletin

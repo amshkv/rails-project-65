@@ -12,6 +12,11 @@ class Web::BulletinsController < Web::ApplicationController
     authorize @bulletin
   end
 
+  def edit
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+  end
+
   def create
     authorize Bulletin
     @bulletin = current_user.bulletins.build(permitted_params)
@@ -20,6 +25,17 @@ class Web::BulletinsController < Web::ApplicationController
       redirect_to @bulletin, notice: I18n.t('bulletin.create.success')
     else
       render :new, status: :unprocessable_entity, alert: I18n.t('bulletin.create.failure')
+    end
+  end
+
+  def update
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+
+    if @bulletin.update(permitted_params)
+      redirect_to @bulletin, notice: I18n.t('bulletin.update.success')
+    else
+      render :edit, status: :unprocessable_entity, alert: I18n.t('bulletin.update.failure')
     end
   end
 

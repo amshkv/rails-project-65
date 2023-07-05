@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     root 'welcome#index'
 
-    resources :bulletins, only: %i[show new create]
+    resources :bulletins, only: %i[show new create edit update]
 
     get 'profile', to: 'profiles#show'
 

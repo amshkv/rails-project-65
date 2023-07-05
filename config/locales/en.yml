@@ -69,6 +69,8 @@ en:
           name: Name
           no_bulletins: No bulletins
     bulletins:
+      edit:
+        edit: Edit "%{bulletin}"
       new:
         new: New bulletin
     profiles:

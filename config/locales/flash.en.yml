@@ -13,6 +13,9 @@ en:
     reject:
       failure: Bulletin was not rejected
       success: Bulletin was successfully rejected
+    update:
+      failure: Bulletin was not updated
+      success: Bulletin was successfully updated
   category:
     create:
       failure: Category was not created

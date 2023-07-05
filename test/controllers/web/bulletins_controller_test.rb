@@ -10,29 +10,46 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       category_id: categories(:work).id,
       image: fixture_file_upload('deathly_hallows.png', 'image/png')
     }
+    @bulletin = bulletins(:published)
+    @user = users(:full)
   end
 
   test 'should get show' do
-    bulletin = bulletins(:published)
-
-    get bulletin_url(bulletin)
+    get bulletin_url(@bulletin)
     assert_response :success
   end
 
-  test 'guest should raise error from new' do # TODO: наверное кривое название, но пока не понятна логика
+  test 'should guest cant get new' do
     get new_bulletin_url
     assert_response :redirect
   end
 
-  test 'signed user should get new' do
-    user = users(:full)
-    sign_in(user)
+  test 'should signed user get new' do
+    sign_in(@user)
 
     get new_bulletin_url
     assert_response :success
   end
 
-  test 'guest cant create post' do
+  test 'should guest cant get edit' do
+    get edit_bulletin_url(@bulletin)
+    assert_response :redirect
+  end
+
+  test 'should not_author bulletin cant get edit' do
+    user = users(:without_bulletins)
+    sign_in(user)
+    get edit_bulletin_url(@bulletin)
+    assert_response :redirect
+  end
+
+  test 'should author bulletin get edit' do
+    sign_in(@user)
+    get edit_bulletin_url(@bulletin)
+    assert_response :success
+  end
+
+  test 'should guest cant create bulletin' do
     post bulletins_url, params: { bulletin: @attrs }
 
     assert_response :redirect
@@ -41,13 +58,44 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_not bulletin
   end
 
-  test 'signed user can create post' do
-    user = users(:full)
-    sign_in(user)
+  test 'should signed user can create bulletin' do
+    sign_in(@user)
 
     post bulletins_url, params: { bulletin: @attrs }
     bulletin = Bulletin.find_by(@attrs.except(:image))
     assert { bulletin }
     assert_redirected_to bulletin_url(bulletin)
+  end
+
+  test 'should guest cant update bulletin' do
+    patch bulletin_url(@bulletin), params: { bulletin: @attrs }
+
+    @bulletin.reload
+
+    assert { @bulletin.title != @attrs[:title] }
+    assert_response :redirect
+  end
+
+  test 'should not author cant update bulletin' do
+    user = users(:without_bulletins)
+    sign_in(user)
+    patch bulletin_url(@bulletin), params: { bulletin: @attrs }
+
+    @bulletin.reload
+
+    assert { @bulletin.title != @attrs[:title] }
+    assert_response :redirect
+  end
+
+  test 'should signed user can update bulletin' do
+    sign_in(@user)
+
+    patch bulletin_url(@bulletin), params: { bulletin: @attrs }
+
+    @bulletin.reload
+
+    assert { @bulletin.title == @attrs[:title] }
+    assert { @bulletin.description == @attrs[:description] }
+    assert_redirected_to bulletin_url(@bulletin)
   end
 end
