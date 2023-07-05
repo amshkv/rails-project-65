@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
     root 'welcome#index'
 
-    resources :bulletins, only: %i[show new create edit update]
+    resources :bulletins, only: %i[show new create edit update] do
+      member do
+        patch :to_moderate
+        patch :archive
+      end
+    end
 
     get 'profile', to: 'profiles#show'
 

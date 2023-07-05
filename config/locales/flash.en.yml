@@ -16,6 +16,9 @@ en:
     update:
       failure: Bulletin was not updated
       success: Bulletin was successfully updated
+    to_moderate:
+      failure: Bulletin was not sent to moderation
+      success: Bulletin was successfully sent to moderation
   category:
     create:
       failure: Category was not created

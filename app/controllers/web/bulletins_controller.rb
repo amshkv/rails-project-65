@@ -39,6 +39,26 @@ class Web::BulletinsController < Web::ApplicationController
     end
   end
 
+  def to_moderate
+    bulletin = Bulletin.find(params[:id])
+
+    if bulletin.send_to_moderate!
+      redirect_to profile_path, notice: I18n.t('bulletin.to_moderate.success')
+    else
+      redirect_to profile_path, alert: I18n.t('bulletin.to_moderate.failure')
+    end
+  end
+
+  def archive
+    bulletin = Bulletin.find(params[:id])
+
+    if bulletin.archive!
+      redirect_to profile_path, notice: I18n.t('bulletin.archive.success')
+    else
+      redirect_to profile_path, alert: I18n.t('bulletin.archive.failure')
+    end
+  end
+
   private
 
   def permitted_params
