@@ -19,7 +19,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'guest should raise error from new' do
+  test 'guest should raise error from new' do # TODO: наверное кривое название, но пока не понятна логика
     get new_bulletin_url
     assert_response :redirect
   end
