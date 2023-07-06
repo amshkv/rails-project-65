@@ -5,8 +5,8 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
-#  aasm_state  :string
 #  description :text
+#  state       :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -26,7 +26,7 @@
 class Bulletin < ApplicationRecord
   include AASM
 
-  aasm do
+  aasm column: :state do
     state :draft, initial: true
     state :under_moderation
     state :published
@@ -60,6 +60,6 @@ class Bulletin < ApplicationRecord
   validates :image, attached: true, content_type: %i[png jpg jpeg], size: { less_than: 5.megabytes }
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title category_id aasm_state]
+    %w[title category_id state]
   end
 end

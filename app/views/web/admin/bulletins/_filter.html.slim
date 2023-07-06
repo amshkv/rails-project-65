@@ -6,7 +6,7 @@
       .col
         = f.input :category_id_eq, collection: categories, label: false, prompt: :translate
       .col
-        = f.input :aasm_state_eq, collection: states, label: false, prompt: :translate
+        = f.input :state_eq, collection: states, label: false, prompt: :translate
       .col.d-flex
         = f.button :submit, class: 'btn-primary me-2 flex-grow-1'
         = link_to t('reset'), url_for, class: 'btn btn-outline-primary flex-shrink-0'

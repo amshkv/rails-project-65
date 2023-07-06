@@ -3,8 +3,8 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
-#  aasm_state  :string
 #  description :text
+#  state       :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -27,28 +27,28 @@ published:
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
-  aasm_state: $LABEL
+  state: $LABEL
 
 draft:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
-  aasm_state: $LABEL
+  state: $LABEL
 
 rejected:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
-  aasm_state: $LABEL
+  state: $LABEL
 
 archived:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
-  aasm_state: $LABEL
+  state: $LABEL
 
 
 under_moderation:
@@ -56,4 +56,4 @@ under_moderation:
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
-  aasm_state: $LABEL
+  state: $LABEL
