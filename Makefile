@@ -46,9 +46,6 @@ console:
 fixture-load:
 	bundle exec rake db:fixtures:load
 
-fix-counters:
-	bundle exec rake app:fix-counters
-
 copy-env:
 	cp -n .env.example .env || exit 0
 
