@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete 'auth/logout'
 
-    root 'welcome#index'
+    root 'bulletins#index'
 
-    resources :bulletins, only: %i[show new create edit update] do
+    resources :bulletins, only: %i[index show new create edit update] do
       member do
         patch :to_moderate
         patch :archive

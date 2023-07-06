@@ -64,13 +64,12 @@ en:
     bulletins:
       edit:
         title: Edit "%{bulletin}"
+      index:
+        read_more: Read more
+        title: Bulletins
       new:
         title: New bulletin
     profiles:
       show:
         new_bulletin: New bulletin
         title: My bulletins
-    welcome:
-      index:
-        read_more: Read more
-        title: Bulletins

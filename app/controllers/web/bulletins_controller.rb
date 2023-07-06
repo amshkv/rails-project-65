@@ -3,6 +3,12 @@
 class Web::BulletinsController < Web::ApplicationController
   after_action :verify_authorized, only: %i[new create to_moderate archive]
 
+  def index
+    @search = Bulletin.published.includes(image_attachment: :blob).order(id: :desc).ransack(params[:q])
+    @bulletins = @search.result.page(params[:page])
+    @categories = Category.all
+  end
+
   def show
     @bulletin = Bulletin.find(params[:id])
   end

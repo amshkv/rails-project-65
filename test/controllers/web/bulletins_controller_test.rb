@@ -14,6 +14,11 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:full)
   end
 
+  test 'should get index' do
+    get root_url # bulletins_url
+    assert_response :success
+  end
+
   test 'should get show' do
     get bulletin_url(@bulletin)
     assert_response :success
