@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Web::Admin::WelcomeControllerTest < ActionDispatch::IntegrationTest
-  # TODO: проверяем на админство один раз или во всех контроллерах?
   test 'should guest cant get admin page' do
     get admin_root_url
     assert_response :redirect
