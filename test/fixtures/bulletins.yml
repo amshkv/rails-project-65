@@ -22,38 +22,13 @@
 #  user_id      (user_id => users.id)
 #
 
-published:
+<% for bulletin in Bulletin.aasm.states.map(&:name) %>
+
+<%= bulletin %>:
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
   user: full
   state: $LABEL
 
-draft:
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: work
-  user: full
-  state: $LABEL
-
-rejected:
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: work
-  user: full
-  state: $LABEL
-
-archived:
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: work
-  user: full
-  state: $LABEL
-
-
-under_moderation:
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: work
-  user: full
-  state: $LABEL
+<% end %>

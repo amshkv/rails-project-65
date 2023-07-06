@@ -1,4 +1,4 @@
-<% for bulletin in %i(published rejected archived draft under_moderation) %>
+<% for bulletin in Bulletin.aasm.states.map(&:name) %>
 
 <%= bulletin %>_images:
   name: image
