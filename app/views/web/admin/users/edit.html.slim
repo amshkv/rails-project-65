@@ -1,5 +1,5 @@
 = content_for :title do
-  = t('.edit_user', user: @user.email)
+  = t('.title', user: @user.name)
 
 = simple_form_for @user, url: admin_user_path(@user) do |f|
   = f.input :admin, as: :boolean

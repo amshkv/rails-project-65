@@ -35,26 +35,26 @@ en:
       bulletins:
         index:
           actions: Actions
-          bulletins: Bulletins
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
           state: State
+          title: Bulletins
       categories:
         edit:
-          edit_category: Edit "%{category}"
+          title: Edit "%{category}"
         index:
           actions: Actions
-          categories: Categories
           id: Id
           name: Name
           new_category: New category
           no_categories: No categories
+          title: Categories
         new:
-          new_category: New category
+          title: New category
       users:
         edit:
-          edit_user: Edit "%{user}"
+          title: Edit "%{user}"
         index:
           actions: Actions
           admin: Admin?
@@ -62,30 +62,30 @@ en:
           email: Email
           name: Name
           no_users: No users
-          users: Users
+          title: Users
       welcome:
         index:
           actions: Actions
-          bulletins: Bulletins under moderation
           created_at: Created_at
           name: Name
           no_bulletins: No bulletins
+          title: Bulletins under moderation
     bulletins:
       edit:
-        edit: Edit "%{bulletin}"
+        title: Edit "%{bulletin}"
       new:
-        new: New bulletin
+        title: New bulletin
     profiles:
       show:
         actions: Actions
-        bulletins: My bulletins
         created_at: Created_at
         name: Name
         new_bulletin: New bulletin
         no_bulletins: No bulletins
         state: State
+        title: My bulletins
     welcome:
       index:
-        bulletins: Bulletins
         no_bulletins: No bulletins
         read_more: Read more
+        title: Bulletins

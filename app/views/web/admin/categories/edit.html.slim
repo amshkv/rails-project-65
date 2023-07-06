@@ -1,4 +1,4 @@
 = content_for :title do
-  = t('.edit_category', category: @category.name)
+  = t('.title', category: @category.name)
 
 = render 'form', category: @category, url: admin_category_path
