@@ -47,6 +47,6 @@ fixture-load:
 	bundle exec rake db:fixtures:load
 
 copy-env:
-	cp -n .env.example .env || exit 0
+	cp -n .env.example .env || true
 
 .PHONY: test
