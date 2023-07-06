@@ -6,9 +6,9 @@
     table.table.table-striped
       thead
         tr
-          th = t('.name')
-          th = t('.created_at')
-          th = t('.actions')
+          th = t('name')
+          th = t('created_at')
+          th = t('actions')
       - @bulletins.each do |bulletin|
         tr
           td
@@ -29,4 +29,4 @@
   = paginate @bulletins
 
 - else
-  = t('.no_bulletins')
+  = t('no_bulletins')

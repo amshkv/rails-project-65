@@ -5,11 +5,11 @@
     table.table.table-striped
       thead
         tr
-          th = t('.email')
-          th = t('.name')
-          th = t('.created_at')
-          th = t('.admin')
-          th = t('.actions')
+          th = t('email')
+          th = t('name')
+          th = t('created_at')
+          th = t('admin')
+          th = t('actions')
       - @users.each do |user|
         tr
           td = user.email
