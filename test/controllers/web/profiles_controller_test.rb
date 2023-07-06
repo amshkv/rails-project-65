@@ -5,7 +5,7 @@ require 'test_helper'
 class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
   test 'should guest cant get show' do
     get profile_path
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should signed user get show' do

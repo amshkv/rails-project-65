@@ -26,7 +26,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should guest cant get new' do
     get new_bulletin_url
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should signed user get new' do
@@ -38,14 +38,14 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should guest cant get edit' do
     get edit_bulletin_url(@bulletin)
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should not_author bulletin cant get edit' do
     user = users(:without_bulletins)
     sign_in(user)
     get edit_bulletin_url(@bulletin)
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should author bulletin get edit' do
@@ -57,7 +57,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should guest cant create bulletin' do
     post bulletins_url, params: { bulletin: @attrs }
 
-    assert_response :redirect
+    assert_redirected_to root_url
 
     bulletin = Bulletin.find_by(@attrs.except(:image))
     assert_not bulletin
@@ -78,7 +78,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @bulletin.reload
 
     assert { @bulletin.title != @attrs[:title] }
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should not author cant update bulletin' do
@@ -89,7 +89,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @bulletin.reload
 
     assert { @bulletin.title != @attrs[:title] }
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
   test 'should signed user can update bulletin' do

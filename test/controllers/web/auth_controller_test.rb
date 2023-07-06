@@ -4,7 +4,7 @@ require 'test_helper' # TODO: в теории (в примере) про это 
 class Web::AuthControllerTest < ActionDispatch::IntegrationTest
   test 'check github auth' do
     post auth_request_path('github')
-    assert_response :redirect
+    assert_redirected_to callback_auth_url(:github)
   end
 
   test 'create' do
@@ -20,7 +20,7 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash::InfoHash.new(auth_hash)
 
     get callback_auth_url('github')
-    assert_response :redirect
+    assert_redirected_to root_url
 
     user = User.find_by!(email: auth_hash[:info][:email].downcase)
 
@@ -33,7 +33,7 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     delete auth_logout_url
-    assert_response :redirect
+    assert_redirected_to root_url
 
     assert { !signed_in? }
   end
