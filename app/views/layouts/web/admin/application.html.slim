@@ -8,10 +8,10 @@ html
       = render_flash_messages dismissible: true
 
     main.flex-grow-1.flex-shrink-0
-      .container-fluid
+      .container-fluid.my-5
         .row
-          .col-lg-2.pt-3
-            ul.nav.nav-pills.flex-column
+          .col-lg-2
+            ul.nav.nav-pills.flex-column.sticky-top
               li.nav-item
                 = link_to t('.root'), admin_root_path, class: class_names('nav-link', active: current_page?(admin_root_path))
               li.nav-item
@@ -21,6 +21,9 @@ html
               li.nav-item
                 = link_to t('.users'), admin_users_path, class: class_names('nav-link', active: current_page?(admin_users_path))
           .col-lg
+            - if content_for?(:title)
+              h1.mb-4 = yield(:title)
+
             = yield
 
     = render 'layouts/shared/footer'

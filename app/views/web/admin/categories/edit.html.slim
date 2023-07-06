@@ -1,4 +1,4 @@
-.container.my-5
-  h1 = t('.edit_category', category: @category.name)
+= content_for :title do
+  = t('.edit_category', category: @category.name)
 
-  = render 'form', category: @category, url: admin_category_path
+= render 'form', category: @category, url: admin_category_path

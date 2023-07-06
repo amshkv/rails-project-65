@@ -1,29 +1,29 @@
-.container.my-5
-  h1 = t('.users')
-  - if @users.any?
-    .table-responsive.mb-5
-      table.table.table-striped
-        thead
-          tr
-            th = t('.email')
-            th = t('.name')
-            th = t('.created_at')
-            th = t('.admin')
-            th = t('.actions')
-        - @users.each do |user|
-          tr
-            td = user.email
-            td = user.name
-            td = l(user.created_at, format: :long)
-            / TODO: может быть лучше через humanize как-нибудь или через переводы чтобы было yes-no?
-            td = user.admin?
-            td
-              .btn-group
-                = link_to edit_admin_user_path(user), class: 'btn btn-primary btn-sm' do
-                  span.bi.bi-pencil-square.me-1
-                  = t('edit')
+= content_for :title do
+  = t('.users')
+- if @users.any?
+  .table-responsive.mb-5
+    table.table.table-striped
+      thead
+        tr
+          th = t('.email')
+          th = t('.name')
+          th = t('.created_at')
+          th = t('.admin')
+          th = t('.actions')
+      - @users.each do |user|
+        tr
+          td = user.email
+          td = user.name
+          td = l(user.created_at, format: :long)
+          / TODO: может быть лучше через humanize как-нибудь или через переводы чтобы было yes-no?
+          td = user.admin?
+          td
+            .btn-group
+              = link_to edit_admin_user_path(user), class: 'btn btn-primary btn-sm' do
+                span.bi.bi-pencil-square.me-1
+                = t('edit')
 
-    = paginate @users
+  = paginate @users
 
-  - else
-    = t('.no_users')
+- else
+  = t('.no_users')
