@@ -8,7 +8,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     @attrs = {
-      name: Faker::Company.name
+      name: Faker::Beer.brand
     }
   end
   test 'should get index' do
