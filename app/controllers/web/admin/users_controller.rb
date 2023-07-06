@@ -15,7 +15,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     if @user.update(permitted_params)
       redirect_to admin_users_path, notice: t('user.update.success')
     else
-      render :edit, status: :unprocessable_entity, alert: t('user.update.failure')
+      flash.now[:alert] = t('user.update.failure')
+      render :edit, status: :unprocessable_entity
     end
   end
 

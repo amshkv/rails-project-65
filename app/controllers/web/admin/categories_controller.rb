@@ -19,7 +19,8 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     if @category.save
       redirect_to admin_categories_path, notice: I18n.t('category.create.success')
     else
-      render :new, status: :unprocessable_entity, alert: I18n.t('category.create.failure')
+      flash.now[:alert] = I18n.t('category.create.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +30,8 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     if @category.update(permitted_params)
       redirect_to admin_categories_path, notice: I18n.t('category.update.success')
     else
-      render :edit, status: :unprocessable_entity, alert: I18n.t('category.update.failure')
+      flash.now[:alert] = I18n.t('category.update.failure')
+      render :edit, status: :unprocessable_entity
     end
   end
 

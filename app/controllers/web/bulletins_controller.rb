@@ -26,7 +26,8 @@ class Web::BulletinsController < Web::ApplicationController
     if @bulletin.save
       redirect_to @bulletin, notice: I18n.t('bulletin.create.success')
     else
-      render :new, status: :unprocessable_entity, alert: I18n.t('bulletin.create.failure')
+      flash.now[:alert] = I18n.t('bulletin.create.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +38,8 @@ class Web::BulletinsController < Web::ApplicationController
     if @bulletin.update(permitted_params)
       redirect_to @bulletin, notice: I18n.t('bulletin.update.success')
     else
-      render :edit, status: :unprocessable_entity, alert: I18n.t('bulletin.update.failure')
+      flash.now[:alert] = I18n.t('bulletin.update.failure')
+      render :edit, status: :unprocessable_entity
     end
   end
 
