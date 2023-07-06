@@ -1,3 +1,4 @@
-.container.my-5
-  h1.mb-4 = t('.new')
-  = render 'form', bulletin: @bulletin, categories: @categories
+= content_for :title do
+  = t('.new')
+
+= render 'form', bulletin: @bulletin, categories: @categories

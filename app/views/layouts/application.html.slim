@@ -8,6 +8,10 @@ html
       = render_flash_messages dismissible: true
 
     main.flex-grow-1.flex-shrink-0
-      = yield
+      .container.my-5
+        - if content_for?(:title)
+          h1.mb-4 = yield(:title)
+
+        = yield
 
     = render 'layouts/shared/footer'
