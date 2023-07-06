@@ -10,7 +10,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def show
-    @bulletin = Bulletin.find(params[:id])
+    @bulletin = resource_bulletin
   end
 
   def new
@@ -20,7 +20,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def edit
-    @bulletin = Bulletin.find(params[:id])
+    @bulletin = resource_bulletin
     authorize @bulletin
     @categories = Category.all
   end
@@ -38,7 +38,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def update
-    @bulletin = Bulletin.find(params[:id])
+    @bulletin = resource_bulletin
     authorize @bulletin
 
     if @bulletin.update(permitted_params)
@@ -50,7 +50,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def to_moderate
-    bulletin = Bulletin.find(params[:id])
+    bulletin = resource_bulletin
     authorize bulletin
 
     if bulletin.send_to_moderate!
@@ -61,7 +61,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def archive
-    bulletin = Bulletin.find(params[:id])
+    bulletin = resource_bulletin
     authorize bulletin
 
     if bulletin.archive!
@@ -75,5 +75,9 @@ class Web::BulletinsController < Web::ApplicationController
 
   def permitted_params
     params.require(:bulletin).permit(:title, :description, :category_id, :image)
+  end
+
+  def resource_bulletin
+    @resource_bulletin ||= Bulletin.find(params[:id])
   end
 end

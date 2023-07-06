@@ -9,7 +9,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   end
 
   def publish
-    bulletin = Bulletin.find(params[:id])
+    bulletin = resource_bulletin
 
     if bulletin.publish!
       redirect_to admin_bulletins_path, notice: t('bulletin.publish.success')
@@ -19,7 +19,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   end
 
   def reject
-    bulletin = Bulletin.find(params[:id])
+    bulletin = resource_bulletin
 
     if bulletin.reject!
       redirect_to admin_bulletins_path, notice: t('bulletin.reject.success')
@@ -29,12 +29,18 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   end
 
   def archive
-    bulletin = Bulletin.find(params[:id])
+    bulletin = resource_bulletin
 
     if bulletin.archive!
       redirect_to admin_bulletins_path, notice: t('bulletin.archive.success')
     else
       redirect_to admin_bulletins_path, alert: t('bulletin.archive.failure')
     end
+  end
+
+  private
+
+  def resource_bulletin
+    @resource_bulletin ||= Bulletin.find(params[:id])
   end
 end
