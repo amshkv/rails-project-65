@@ -9,7 +9,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_categories_on_name  (name) UNIQUE
+#
 class Category < ApplicationRecord
   has_many :bulletins, dependent: :destroy
-  validates :name, presence: true, length: { minimum: 3, maximum: 30 }
+  validates :name, presence: true, length: { minimum: 3, maximum: 30 }, uniqueness: true
 end
