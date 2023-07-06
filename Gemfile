@@ -52,6 +52,8 @@ gem 'image_processing', '~> 1.2'
 
 gem 'active_storage_validations'
 
+gem 'aws-sdk-s3'
+
 gem 'flash_rails_messages'
 
 gem 'slim-rails'
