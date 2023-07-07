@@ -3,7 +3,7 @@
 require 'test_helper' # TODO: в теории (в примере) про это ничего нет, но в остальных тестах пишем?!
 class Web::AuthControllerTest < ActionDispatch::IntegrationTest
   test 'check github auth' do
-    post auth_request_path('github')
+    post auth_request_url(:github)
     assert_redirected_to callback_auth_url(:github)
   end
 
