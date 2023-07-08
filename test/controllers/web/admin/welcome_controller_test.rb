@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class Web::Admin::WelcomeControllerTest < ActionDispatch::IntegrationTest
+  # NOTE: Тест, который проверяет, что гость не может получить доступ к страницам админки
+  # Жизнь слишком коротка для того, чтобы проверять это в каждом контроллере
   test 'should guest cant get admin page' do
     get admin_root_url
     assert_redirected_to root_url

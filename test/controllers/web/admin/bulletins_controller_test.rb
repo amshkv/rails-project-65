@@ -19,6 +19,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.published? }
+    assert_redirected_to admin_bulletins_url
   end
 
   test 'should reject bulletin' do
@@ -28,6 +29,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.rejected? }
+    assert_redirected_to admin_bulletins_url
   end
 
   test 'should archive bulletin' do
@@ -37,5 +39,8 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.archived? }
+    assert_redirected_to admin_bulletins_url
   end
+
+  # NOTE: тут еще могли бы быть тесты на проверку не верных переходов из одного состояния в другое, но надо ли?
 end
