@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class BulletinPolicy < ApplicationPolicy
+  def show?
+    published? || author? || admin?
+  end
+
   def new?
     user
   end
@@ -29,5 +33,13 @@ class BulletinPolicy < ApplicationPolicy
 
   def author?
     record.user == user
+  end
+
+  def admin?
+    user&.admin?
+  end
+
+  def published?
+    record.published?
   end
 end

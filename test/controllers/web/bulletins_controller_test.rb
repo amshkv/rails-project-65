@@ -2,6 +2,7 @@
 
 require 'test_helper'
 
+# rubocop:disable Metrics/ClassLength
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @attrs = {
@@ -19,8 +20,29 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get show' do
+  test 'should get publish bulletin' do
     get bulletin_url(@bulletin)
+    assert_response :success
+  end
+
+  test 'should guest cant show non published bulletin' do
+    bulletin = bulletins(:rejected)
+    get bulletin_url(bulletin)
+    assert_redirected_to root_url
+  end
+
+  test 'should non author cant show non published bulletin' do
+    user = users(:without_bulletins)
+    sign_in(user)
+    bulletin = bulletins(:rejected)
+    get bulletin_url(bulletin)
+    assert_redirected_to root_url
+  end
+
+  test 'should admin can show non published bulletin' do
+    sign_in(@user)
+    bulletin = bulletins(:with_draft_and_another_author)
+    get bulletin_url(bulletin)
     assert_response :success
   end
 
@@ -128,6 +150,5 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert { @bulletin.archived? }
     assert_redirected_to profile_url
   end
-
-  # NOTE: тут еще были тесты на edit\update\archive\to_moderate для гостя, но размер файла превышает 100 строк
 end
+# rubocop:enable Metrics/ClassLength

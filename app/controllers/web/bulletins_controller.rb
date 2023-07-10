@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
-  after_action :verify_authorized, only: %i[new create to_moderate archive]
+  after_action :verify_authorized, only: %i[show new create to_moderate archive]
 
   def index
     @search = Bulletin.published.includes(image_attachment: :blob).order(id: :desc).ransack(params[:q])
@@ -11,6 +11,7 @@ class Web::BulletinsController < Web::ApplicationController
 
   def show
     @bulletin = resource_bulletin
+    authorize @bulletin
   end
 
   def new
