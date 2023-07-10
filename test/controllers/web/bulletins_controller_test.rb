@@ -2,6 +2,8 @@
 
 require 'test_helper'
 
+# NOTE: для Коли Г. Да, тут много тестов. Да, некоторые тесты можно опустить. Да, это специально, и согласовано с Василисой
+
 # rubocop:disable Metrics/ClassLength
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
