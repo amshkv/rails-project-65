@@ -14,6 +14,6 @@
 #  index_categories_on_name  (name) UNIQUE
 #
 class Category < ApplicationRecord
-  has_many :bulletins, dependent: :destroy
+  has_many :bulletins, dependent: :restrict_with_exception
   validates :name, presence: true, length: { minimum: 3, maximum: 30 }, uniqueness: { case_sensitive: false }
 end

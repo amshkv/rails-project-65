@@ -24,6 +24,7 @@ en:
       failure: Category was not created
       success: Category was successfully created
     destroy:
+      not_empty: Failed to delete a category because it contains bulletins
       success: Category was successfully destroyed
     update:
       failure: Category was not updated

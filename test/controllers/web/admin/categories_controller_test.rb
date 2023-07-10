@@ -46,8 +46,16 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_categories_url
   end
 
-  test 'should destroy category' do
+  test 'should cant destroy non empty category' do
     category = categories(:work)
+    delete admin_category_url(category)
+
+    assert { Category.exists?(category.id) }
+    assert_redirected_to admin_categories_url
+  end
+
+  test 'should destroy empty category' do
+    category = categories(:empty_category)
     delete admin_category_url(category)
 
     assert { !Category.exists?(category.id) }

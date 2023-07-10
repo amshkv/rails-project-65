@@ -13,4 +13,7 @@
 #
 
 work:
-  name: work
+  name: Work
+
+empty_category:
+  name: Empty Category

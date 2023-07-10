@@ -38,9 +38,13 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   def destroy
     category = Category.find(params[:id])
 
-    category.destroy
-
-    redirect_to admin_categories_path, notice: I18n.t('category.destroy.success')
+    # TODO: можно вынести общее отдельно, а в теле условия оставить только флешки и действия
+    if category.bulletins.any?
+      redirect_to admin_categories_path, warning: I18n.t('category.destroy.not_empty')
+    else
+      category.destroy
+      redirect_to admin_categories_path, notice: I18n.t('category.destroy.success')
+    end
   end
 
   private
