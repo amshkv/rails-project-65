@@ -58,6 +58,11 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should guest cant get edit' do
+    get edit_bulletin_url(@bulletin)
+    assert_redirected_to root_url
+  end
+
   test 'should not_author bulletin cant get edit' do
     user = users(:without_bulletins)
     sign_in(user)
@@ -89,6 +94,15 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to bulletin_url(bulletin)
   end
 
+  test 'should guest cant update bulletin' do
+    patch bulletin_url(@bulletin), params: { bulletin: @attrs }
+
+    @bulletin.reload
+
+    assert { @bulletin.title != @attrs[:title] }
+    assert_redirected_to root_url
+  end
+
   test 'should not author cant update bulletin' do
     user = users(:without_bulletins)
     sign_in(user)
@@ -112,6 +126,16 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to bulletin_url(@bulletin)
   end
 
+  test 'should guest cant send to moderate bulletin' do
+    bulletin = bulletins(:draft)
+    patch to_moderate_bulletin_url(bulletin)
+
+    bulletin.reload
+
+    assert { bulletin.draft? }
+    assert_redirected_to root_url
+  end
+
   test 'should not author cant send to moderate bulletin' do
     user = users(:without_bulletins)
     sign_in(user)
@@ -131,6 +155,25 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
     assert { bulletin.under_moderation? }
     assert_redirected_to profile_url
+  end
+
+  test 'should cant send to moderate non draft bulletin' do
+    sign_in(@user)
+    bulletin = bulletins(:rejected)
+    patch to_moderate_bulletin_url(bulletin)
+
+    bulletin.reload
+
+    assert { bulletin.rejected? }
+    assert_redirected_to profile_url
+  end
+
+  test 'should guest cant archive bulletin' do
+    bulletin = bulletins(:draft)
+    patch archive_bulletin_url(bulletin)
+    bulletin.reload
+    assert { bulletin.draft? }
+    assert_redirected_to root_url
   end
 
   test 'should not author cant archive bulletin' do

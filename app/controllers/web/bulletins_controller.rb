@@ -54,7 +54,8 @@ class Web::BulletinsController < Web::ApplicationController
     bulletin = resource_bulletin
     authorize bulletin
 
-    if bulletin.send_to_moderate!
+    if bulletin.may_send_to_moderate?
+      bulletin.send_to_moderate!
       redirect_to profile_path, notice: I18n.t('bulletin.to_moderate.success')
     else
       redirect_to profile_path, alert: I18n.t('bulletin.to_moderate.failure')
