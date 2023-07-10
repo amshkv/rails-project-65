@@ -14,7 +14,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       image: fixture_file_upload('deathly_hallows.png', 'image/png')
     }
     @bulletin = bulletins(:published)
-    @user = users(:full)
+    @user = users(:full) # NOTE: может как-то именовать более явно? типа full user, или админ, или еще как?
   end
 
   test 'should get index' do
