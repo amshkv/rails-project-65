@@ -12,9 +12,9 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     bulletin = resource_bulletin
 
     if bulletin.publish!
-      redirect_to admin_bulletins_path, notice: t('bulletin.publish.success')
+      redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.publish.success')
     else
-      redirect_to admin_bulletins_path, alert: t('bulletin.publish.failure')
+      redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.publish.failure')
     end
   end
 
@@ -22,9 +22,9 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     bulletin = resource_bulletin
 
     if bulletin.reject!
-      redirect_to admin_bulletins_path, notice: t('bulletin.reject.success')
+      redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.reject.success')
     else
-      redirect_to admin_bulletins_path, alert: t('bulletin.reject.failure')
+      redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.reject.failure')
     end
   end
 
@@ -32,9 +32,9 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     bulletin = resource_bulletin
 
     if bulletin.archive!
-      redirect_to admin_bulletins_path, notice: t('bulletin.archive.success')
+      redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.archive.success')
     else
-      redirect_to admin_bulletins_path, alert: t('bulletin.archive.failure')
+      redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.archive.failure')
     end
   end
 
