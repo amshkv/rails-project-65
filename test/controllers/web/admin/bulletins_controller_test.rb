@@ -22,6 +22,16 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_bulletins_url
   end
 
+  test 'should cant publish bulletin with not under_moderation state' do
+    bulletin = bulletins(:draft)
+    patch publish_admin_bulletin_url(bulletin)
+
+    bulletin.reload
+
+    assert { bulletin.draft? }
+    assert_redirected_to admin_bulletins_url
+  end
+
   test 'should reject bulletin' do
     bulletin = bulletins(:under_moderation)
     patch reject_admin_bulletin_url(bulletin)
@@ -29,6 +39,16 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.rejected? }
+    assert_redirected_to admin_bulletins_url
+  end
+
+  test 'should cant reject bulletin with not under_moderation state' do
+    bulletin = bulletins(:draft)
+    patch reject_admin_bulletin_url(bulletin)
+
+    bulletin.reload
+
+    assert { bulletin.draft? }
     assert_redirected_to admin_bulletins_url
   end
 
@@ -41,6 +61,4 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert { bulletin.archived? }
     assert_redirected_to admin_bulletins_url
   end
-
-  # NOTE: тут еще могли бы быть тесты на проверку не верных переходов из одного состояния в другое, но надо ли?
 end

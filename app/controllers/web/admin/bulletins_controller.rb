@@ -12,7 +12,8 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def publish
     bulletin = resource_bulletin
 
-    if bulletin.publish!
+    if bulletin.may_publish?
+      bulletin.publish!
       redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.publish.success')
     else
       redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.publish.failure')
@@ -22,7 +23,8 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def reject
     bulletin = resource_bulletin
 
-    if bulletin.reject!
+    if bulletin.may_reject?
+      bulletin.reject!
       redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.reject.success')
     else
       redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.reject.failure')
