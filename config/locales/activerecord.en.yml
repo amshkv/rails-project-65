@@ -4,8 +4,8 @@ en:
     attributes:
       bulletin:
         state:
-          published: Published
           archived: Archived
+          draft: Draft
+          published: Published
           rejected: Rejected
           under_moderation: Under Moderation
-          draft: Draft
