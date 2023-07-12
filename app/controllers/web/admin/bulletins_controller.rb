@@ -14,9 +14,9 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
     if bulletin.may_publish?
       bulletin.publish!
-      redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.publish.success')
+      redirect_to admin_root_path, notice: t('bulletin.publish.success')
     else
-      redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.publish.failure')
+      redirect_to admin_root_path, alert: t('bulletin.publish.failure')
     end
   end
 
@@ -25,9 +25,9 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
     if bulletin.may_reject?
       bulletin.reject!
-      redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.reject.success')
+      redirect_to admin_root_path, notice: t('bulletin.reject.success')
     else
-      redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.reject.failure')
+      redirect_to admin_root_path, alert: t('bulletin.reject.failure')
     end
   end
 

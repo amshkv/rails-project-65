@@ -19,7 +19,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.published? }
-    assert_redirected_to admin_bulletins_url
+    assert_redirected_to admin_root_url
   end
 
   test 'should cant publish bulletin with not under_moderation state' do
@@ -29,7 +29,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.draft? }
-    assert_redirected_to admin_bulletins_url
+    assert_redirected_to admin_root_url
   end
 
   test 'should reject bulletin' do
@@ -39,7 +39,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.rejected? }
-    assert_redirected_to admin_bulletins_url
+    assert_redirected_to admin_root_url
   end
 
   test 'should cant reject bulletin with not under_moderation state' do
@@ -49,7 +49,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert { bulletin.draft? }
-    assert_redirected_to admin_bulletins_url
+    assert_redirected_to admin_root_url
   end
 
   test 'should archive bulletin' do
