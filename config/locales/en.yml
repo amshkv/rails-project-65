@@ -1,16 +1,12 @@
 ---
 en:
   actions: Actions
-  admin: Admin?
   application_name: Bulletin board
   archive: Archive
   close: Close
   confirm: Are you sure?
-  created_at: Created_at
   delete: Delete
   edit: Edit
-  email: Email
-  id: id
   layouts:
     shared:
       footer:
@@ -30,13 +26,11 @@ en:
           categories: Categories
           root: Bulletins under moderation
           users: Users
-  name: Name
   no_bulletins: No bulletins
   publish: Publish
   reject: Reject
   reset: Reset
   show: Show
-  state: State
   to_moderate: Send to moderation
   web:
     admin:

@@ -3,9 +3,21 @@ en:
   activerecord:
     attributes:
       bulletin:
-        state:
-          archived: Archived
-          draft: Draft
-          published: Published
-          rejected: Rejected
-          under_moderation: Under Moderation
+        category: Category
+        created_at: Created At
+        description: Description
+        state: State
+        state/archived: Archived
+        state/draft: Draft
+        state/published: Published
+        state/rejected: Rejected
+        state/under_moderation: Under Moderation
+        title: Title
+      category:
+        id: Id
+        name: Name
+      user:
+        admin: Admin?
+        created_at: Created At
+        email: Email
+        name: Name

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module ModelHelper
+  def han(model, attribute)
+    model.to_s.classify.constantize.human_attribute_name(attribute)
+  end
+
   def model_states(model, state_machine = :default)
     model.to_s.classify.constantize.aasm(state_machine).states
   end

@@ -6,13 +6,6 @@ en:
         category_id_eq: Category search
         state_eq: State search
         title_cont: Title search
-    placeholders:
-      q:
-        title_cont: Title
-    prompts:
-      q:
-        category_id_eq: Category
-        state_eq: State
     required:
       html: <span title="required">*</span>
       text: required

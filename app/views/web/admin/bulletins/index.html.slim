@@ -8,9 +8,9 @@
     table.table.table-striped
       thead
         tr
-          th = t('name')
-          th = t('state')
-          th = t('created_at')
+          th = han(:bulletin, :title)
+          th = han(:bulletin, :state)
+          th = han(:bulletin, :created_at)
           th = t('actions')
       - @bulletins.each do |bulletin|
         tr

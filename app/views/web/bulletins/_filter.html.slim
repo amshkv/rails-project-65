@@ -2,9 +2,9 @@
   = search_form_for search, url: url_for do |f|
     .row.g-2.row-cols-1.row-cols-md-2.row-cols-lg-3.align-items-start
       .col
-        = f.input :title_cont, label: false
+        = f.input :title_cont, label: false, placeholder: han(:bulletin, :title)
       .col
-        = f.input :category_id_eq, collection: categories, label: false, prompt: :translate
+        = f.input :category_id_eq, collection: categories, label: false, placeholder: han(:bulletin, :category)
       .col.d-flex
         = f.button :submit, class: 'btn-primary me-2 flex-grow-1'
         = link_to t('reset'), url_for, class: 'btn btn-outline-primary flex-shrink-0'

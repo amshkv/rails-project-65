@@ -8,8 +8,8 @@
     table.table.table-striped
       thead
         tr
-          th = t('id')
-          th = t('name')
+          th = han(:category, :id)
+          th = han(:category, :name)
           th = t('actions')
       - @categories.each do |category|
         tr
