@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'profile', to: 'profiles#show'
+    resource 'profile', only: %i[show]
 
     namespace :admin do
       root 'welcome#index'
