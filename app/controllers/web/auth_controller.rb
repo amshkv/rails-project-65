@@ -7,7 +7,8 @@ class Web::AuthController < Web::ApplicationController
     email = auth.info.email
     name = auth.info.name
 
-    user = User.find_or_create_by(email:, name:) # TODO: что делать, если юзер сменит что-то из этого?
+    user = User.find_or_create_by(email:)
+    user.name = name
 
     if user.save!
       sign_in(user)
