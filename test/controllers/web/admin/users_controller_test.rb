@@ -22,9 +22,9 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   test 'update user' do
     patch admin_user_url(@editing_user), params: { user: { admin: true } }
 
-    updated_user = User.find(@editing_user.id)
+    @editing_user.reload
 
-    assert { updated_user.admin? }
+    assert { @editing_user.admin? }
     assert_redirected_to admin_users_url
   end
 end
