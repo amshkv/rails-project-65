@@ -4,7 +4,7 @@
       .col
         = f.input :title_cont, label: false, placeholder: han(:bulletin, :title)
       .col
-        = f.input :category_id_eq, collection: categories, label: false, placeholder: han(:bulletin, :category)
+        = f.input :category_id_eq, collection: categories, label: false, prompt: han(:bulletin, :category)
       .col.d-flex
         = f.button :submit, class: 'btn-primary me-2 flex-grow-1'
         = link_to t('reset'), url_for, class: 'btn btn-outline-primary flex-shrink-0'
