@@ -28,6 +28,29 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
     assert { signed_in? }
   end
 
+  test 'sign in existing user with another name' do
+    user = users(:base)
+    new_name = Faker::Name.last_name
+    auth_hash = {
+      provider: 'github',
+      uid: '12345',
+      info: {
+        email: user.email,
+        name: new_name
+      }
+    }
+
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash::InfoHash.new(auth_hash)
+
+    get callback_auth_url('github')
+    assert_redirected_to root_url
+
+    user.reload
+
+    assert { user.name == new_name }
+    assert { signed_in? }
+  end
+
   test 'logout' do
     user = users(:base)
     sign_in(user)
