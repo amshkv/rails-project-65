@@ -14,14 +14,14 @@ DEFAULTS: &DEFAULTS
   email: $LABEL@test.io
   admin: false
 
-full:
+base:
+  <<: *DEFAULTS
+  name: <%= Faker::Name.name %>
+
+admin:
   <<: *DEFAULTS
   name: <%= Faker::Name.name %>
   admin: true
-
-not_admin:
-  <<: *DEFAULTS
-  name: <%= Faker::Name.name %>
 
 without_bulletins:
   <<: *DEFAULTS

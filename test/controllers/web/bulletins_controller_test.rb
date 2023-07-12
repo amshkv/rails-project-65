@@ -14,7 +14,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       image: fixture_file_upload('deathly_hallows.png', 'image/png')
     }
     @bulletin = bulletins(:published)
-    @user = users(:full) # NOTE: может как-то именовать более явно? типа full user, или админ, или еще как?
+    @user = users(:base)
   end
 
   test 'get index' do
@@ -42,8 +42,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'admin can show non published bulletin' do
-    sign_in(@user)
-    bulletin = bulletins(:with_draft_and_another_author)
+    admin = users(:admin)
+    sign_in(admin)
+    bulletin = bulletins(:rejected)
     get bulletin_url(bulletin)
     assert_response :success
   end
@@ -116,7 +117,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test 'signed user can update bulletin' do
+  test 'author can update bulletin' do
     sign_in(@user)
 
     patch bulletin_url(@bulletin), params: { bulletin: @attrs }

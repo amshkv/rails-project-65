@@ -29,7 +29,7 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'logout' do
-    user = users(:full)
+    user = users(:base)
     sign_in(user)
 
     delete auth_logout_url

@@ -28,14 +28,7 @@
   title: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.paragraph_by_chars %>
   category: work
-  user: full
+  user: base
   state: $LABEL
 
 <% end %>
-
-with_draft_and_another_author:
-  title: <%= Faker::Company.name %>
-  description: <%= Faker::Lorem.paragraph_by_chars %>
-  category: work
-  user: not_admin
-  state: draft

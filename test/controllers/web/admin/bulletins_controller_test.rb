@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    user = users(:full)
+    user = users(:admin)
     sign_in(user)
   end
   test 'get index' do

@@ -11,15 +11,15 @@ class Web::Admin::WelcomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'not admin cant get admin page' do
-    user = users(:not_admin)
+    user = users(:base)
     sign_in(user)
 
     get admin_root_url
     assert_redirected_to root_url
   end
 
-  test 'admin signed user get admin page' do
-    user = users(:full)
+  test 'admin get admin page' do
+    user = users(:admin)
     sign_in(user)
 
     get admin_root_url

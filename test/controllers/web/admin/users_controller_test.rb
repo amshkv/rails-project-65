@@ -4,9 +4,9 @@ require 'test_helper'
 
 class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    user = users(:full)
+    user = users(:admin)
     sign_in(user)
-    @editing_user = users(:not_admin)
+    @editing_user = users(:base)
   end
 
   test 'get index' do
