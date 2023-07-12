@@ -17,13 +17,11 @@ class Web::BulletinsController < Web::ApplicationController
   def new
     authorize Bulletin
     @bulletin = Bulletin.new
-    @categories = Category.all
   end
 
   def edit
     @bulletin = resource_bulletin
     authorize @bulletin
-    @categories = Category.all
   end
 
   def create

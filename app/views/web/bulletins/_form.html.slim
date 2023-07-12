@@ -4,7 +4,7 @@
 
   = f.input :title
   = f.input :description
-  = f.association :category, collection: categories
+  = f.association :category
   - if bulletin.image.present?
     = image_tag bulletin.image.variant(resize_to_fill: [400, 300]), class: 'img-fluid mt-3 mb-2'
   = f.input :image, as: :file, required: true
