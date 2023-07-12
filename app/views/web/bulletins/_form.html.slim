@@ -7,5 +7,5 @@
   = f.association :category
   - if bulletin.image.present?
     = image_tag bulletin.image.variant(resize_to_fill: [400, 300]), class: 'img-fluid mt-3 mb-2'
-  = f.input :image, as: :file, required: true
+  = f.input :image, as: :file
   = f.button :submit, class: 'btn-primary'
