@@ -5,8 +5,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     @search = Bulletin.order(id: :desc).ransack(params[:q])
     @bulletins = @search.result.page(params[:page])
     @categories = Category.all
-    # TODO: на хекслете у нас есть отдельный метод в хелпере для этого дела, может тут тоже бахнуть?
-    @states = Bulletin.aasm.states.map { |state| [state.human_name, state.name] }
   end
 
   def publish
