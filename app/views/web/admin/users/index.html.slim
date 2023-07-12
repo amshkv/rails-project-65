@@ -15,8 +15,9 @@
           td = user.email
           td = user.name
           td = l(user.created_at, format: :long)
-          / TODO: может быть лучше через humanize как-нибудь или через переводы чтобы было yes-no?
-          td = user.admin?
+          td
+            - if user.admin?
+              = t('.admin')
           td
             .btn-group
               = link_to edit_admin_user_path(user), class: 'btn btn-primary btn-sm' do
