@@ -44,6 +44,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   private
 
   def resource_bulletin
-    @resource_bulletin ||= Bulletin.find(params[:id])
+    Bulletin.find(params[:id])
   end
 end

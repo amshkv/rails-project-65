@@ -80,6 +80,6 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def resource_bulletin
-    @resource_bulletin ||= Bulletin.find(params[:id])
+    Bulletin.find(params[:id])
   end
 end
