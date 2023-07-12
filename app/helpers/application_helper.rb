@@ -3,7 +3,7 @@
 module ApplicationHelper
   include AuthConcern
 
-  def header_nav_link(anchor, url)
+  def nav_link(anchor, url)
     link_to anchor, url, class: class_names('nav-link', active: current_page?(url))
   end
 end
