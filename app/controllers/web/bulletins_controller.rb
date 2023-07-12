@@ -64,7 +64,8 @@ class Web::BulletinsController < Web::ApplicationController
     bulletin = resource_bulletin
     authorize bulletin
 
-    if bulletin.archive!
+    if bulletin.may_archive?
+      bulletin.archive!
       redirect_to profile_path, notice: I18n.t('bulletin.archive.success')
     else
       redirect_to profile_path, alert: I18n.t('bulletin.archive.failure')

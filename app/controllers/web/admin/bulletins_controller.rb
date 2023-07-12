@@ -34,7 +34,8 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def archive
     bulletin = resource_bulletin
 
-    if bulletin.archive!
+    if bulletin.may_archive?
+      bulletin.archive!
       redirect_back fallback_location: admin_bulletins_path, notice: t('bulletin.archive.success')
     else
       redirect_back fallback_location: admin_bulletins_path, alert: t('bulletin.archive.failure')
