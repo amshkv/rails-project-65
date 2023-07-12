@@ -15,8 +15,8 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def new
+    authorize Bulletin
     @bulletin = Bulletin.new
-    authorize @bulletin
     @categories = Category.all
   end
 
