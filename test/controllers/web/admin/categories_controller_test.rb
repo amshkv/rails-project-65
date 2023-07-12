@@ -11,17 +11,17 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
       name: Faker::Beer.brand
     }
   end
-  test 'should get index' do
+  test 'get index' do
     get admin_categories_url
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'get new' do
     get new_admin_category_url
     assert_response :success
   end
 
-  test 'should create category' do
+  test 'create category' do
     post admin_categories_url, params: { category: @attrs }
 
     category = Category.find_by(@attrs)
@@ -30,13 +30,13 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_categories_url
   end
 
-  test 'should get edit category' do
+  test 'get edit category' do
     category = categories(:work)
     get edit_admin_category_url(category)
     assert_response :success
   end
 
-  test 'should update category' do
+  test 'update category' do
     category = categories(:work)
     patch admin_category_url(category), params: { category: @attrs }
 
@@ -46,7 +46,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_categories_url
   end
 
-  test 'should cant destroy non empty category' do
+  test 'cant destroy non empty category' do
     category = categories(:work)
     delete admin_category_url(category)
 
@@ -54,7 +54,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_categories_url
   end
 
-  test 'should destroy empty category' do
+  test 'destroy empty category' do
     category = categories(:empty_category)
     delete admin_category_url(category)
 

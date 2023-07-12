@@ -9,17 +9,17 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     @editing_user = users(:not_admin)
   end
 
-  test 'should get index' do
+  test 'get index' do
     get admin_users_url
     assert_response :success
   end
 
-  test 'should get edit' do
+  test 'get edit' do
     get edit_admin_user_url(@editing_user)
     assert_response :success
   end
 
-  test 'should update user' do
+  test 'update user' do
     patch admin_user_url(@editing_user), params: { user: { admin: true } }
 
     updated_user = User.find(@editing_user.id)

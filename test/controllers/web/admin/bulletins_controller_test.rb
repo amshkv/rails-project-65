@@ -7,12 +7,12 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     user = users(:full)
     sign_in(user)
   end
-  test 'should get index' do
+  test 'get index' do
     get admin_bulletins_url
     assert_response :success
   end
 
-  test 'should publish bulletin' do
+  test 'publish bulletin' do
     bulletin = bulletins(:under_moderation)
     patch publish_admin_bulletin_url(bulletin)
 
@@ -22,7 +22,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_root_url
   end
 
-  test 'should cant publish bulletin with not under_moderation state' do
+  test 'cant publish bulletin with not under_moderation state' do
     bulletin = bulletins(:draft)
     patch publish_admin_bulletin_url(bulletin)
 
@@ -32,7 +32,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_root_url
   end
 
-  test 'should reject bulletin' do
+  test 'reject bulletin' do
     bulletin = bulletins(:under_moderation)
     patch reject_admin_bulletin_url(bulletin)
 
@@ -42,7 +42,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_root_url
   end
 
-  test 'should cant reject bulletin with not under_moderation state' do
+  test 'cant reject bulletin with not under_moderation state' do
     bulletin = bulletins(:draft)
     patch reject_admin_bulletin_url(bulletin)
 
@@ -52,7 +52,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_root_url
   end
 
-  test 'should archive bulletin' do
+  test 'archive bulletin' do
     bulletin = bulletins(:published)
     patch archive_admin_bulletin_url(bulletin)
 
