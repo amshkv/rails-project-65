@@ -40,9 +40,9 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     category = categories(:work)
     patch admin_category_url(category), params: { category: @attrs }
 
-    updated_category = Category.find_by(@attrs)
+    category.reload
 
-    assert { updated_category }
+    assert { category.name == @attrs[:name] }
     assert_redirected_to admin_categories_url
   end
 
