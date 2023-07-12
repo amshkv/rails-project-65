@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper' # TODO: в теории (в примере) про это ничего нет, но в остальных тестах пишем?!
+require 'test_helper'
 class Web::AuthControllerTest < ActionDispatch::IntegrationTest
   test 'check github auth' do
     post auth_request_url(:github)
