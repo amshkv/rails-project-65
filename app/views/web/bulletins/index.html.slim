@@ -4,7 +4,7 @@
 = render 'filter', search: @search, categories: @categories
 
 - if @bulletins.any?
-  .row.row-cols-lg-4.gy-4.mb-5
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.gy-4.mb-5
     - @bulletins.each do |bulletin|
       .col
         .card.h-100
